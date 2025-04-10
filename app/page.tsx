@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/hooks/useUser';
 import { supabase } from '@/lib/supabase';
+import AddHabit from '@/components/AddHabit';
+import HabitList from '@/components/HabitList';
 
 export default function HomePage() {
   const { user } = useUser();
@@ -33,14 +35,19 @@ export default function HomePage() {
             Start Tracking Your Habits →
           </button>
         ) : (
-          <div className="flex flex-col items-center gap-4">
-            <p className="text-xl">You're logged in as {user.email}</p>
-            <button
-              onClick={handleLogout}
-              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
-            >
-              Sign out
-            </button>
+          // <div className="flex flex-col items-center gap-4">
+          //   <p className="text-xl">You're logged in as {user.email}</p>
+          //   <button
+          //     onClick={handleLogout}
+          //     className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+          //   >
+          //     Sign out
+          //   </button>
+          // </div>
+          <div>
+            <h1 className="text-2xl font-bold mb-4">Your Habits</h1>
+            <AddHabit />
+            <HabitList />
           </div>
         )}
       </div>
